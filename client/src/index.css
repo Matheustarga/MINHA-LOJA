@@ -1,0 +1,13 @@
+.App{
+    background-color: rgb(231, 231, 231);
+    min-height: 100%;
+    
+}
+/* estilização das mensagens de erro */
+.error{
+    color: red;
+    font-size: 20px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
