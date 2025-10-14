@@ -6,11 +6,36 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { BsSteam } from "react-icons/bs";
 import Alert from 'react-bootstrap/Alert';
+//importação icone login
+import { BsSteam } from "react-icons/bs";
+
+
+//importando o hook para verificar o login, vindo de useUsuarios
+import { useVerificaLogin } from "../hooks/useUsuarios";
+//Importando a função useForm do pacote react-hook-form
+import { useForm } from "react-hook-form";
+
 
 
 const Login = () => {
+        //register = cria um objeto com os valores retirados dos inputs
+        //handleSubmit = envia os dados do formulario, caso dê erro ou sucesso
+        //formState {erros} = objetoque guarda uma lista de erros que aconteceram na tentativa de envio
+  const {register, hendleSubmit, formState: {erros} }=useForm();
+
+  //caso o envio dê certo
+  //data = objeto com todas as informações preenchidas nos campos do formulário
+  const onSubmit = (data) => {
+    console.log("Dados enviados: ", data);
+    
+  };
+  // caso o envio dê errado
+  //erros = objeto com todos os erros do envio
+  const onError= (erros)=> {
+    console.log("Erros: ", erros);
+  };
+
   return (
     <div>
       <Container className="justify-content-center align-content-center min-vh-100">
