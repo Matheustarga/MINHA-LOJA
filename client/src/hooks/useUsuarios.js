@@ -26,7 +26,7 @@ export function useVerificaLogin(){
         fetchData()
     },[]);
     //Função para verificar se o usuário passado existe na lista que puxou da API
-    const verificaLogin = () =>{
+    const verificaLogin = (data) =>{
         //Verifica se há um usuário com email passado em data, na lista que buscou da API
         const userToFind = usuarios.find((user)=>{
             return user.email === data.email
