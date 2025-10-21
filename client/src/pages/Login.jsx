@@ -1,4 +1,3 @@
-import React from "react";
 //Importação dos componentes do bootstrap
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Container from "react-bootstrap/Container";
@@ -7,21 +6,36 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
+
+import { useContext, useEffect, useState } from "react";
+
 //importação icone login
 import { BsSteam } from "react-icons/bs";
 //importando o hook para verificar o login, vindo de useUsuarios
 import { useVerificaLogin } from "../hooks/useUsuarios";
 //Importando a função useForm do pacote react-hook-form
 import { useForm } from "react-hook-form";
-
 //Importando o useState para tratar de variáveis
-import {useState} from "react"
+// import {useState} from "react"
+//import { useContext,useEffect,useState } from 'react';
 //importação do Navigate para transitar entra as páginas
+
 import { useNavigate } from "react-router-dom";
+//Importa as informações do contexto autenticação de usuário
+import { AuthContext } from "../contexts/UserContext";
+
+
 
 
 
 const Login = () => {
+  //Usa as variaveis de contexto do usuario
+  const {logout } = useContext(AuthContext)
+  //assim que entrar na pagina, o localStorage é resetado
+    useEffect(() =>{
+        logout();
+    },[])
+
   const navigate = useNavigate()
   //register = cria um objeto com os valores retirados dos inputs
   //handleSubmit = envia os dados do formulario, caso dê erro ou sucesso
