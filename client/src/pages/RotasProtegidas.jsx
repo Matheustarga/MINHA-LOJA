@@ -19,13 +19,13 @@ const RotasProtegidas = () => {
   return (
     <div className='App d-flex'>
       {/* Barra de navegação lateral */}
-      <div className='position-fixed top-0 start-0 min-vh-100 bg-danger'>
+      <div className='position-fixed top-0 start-0 min-vh-100'>
         <BarraNavegacao />
       </div>
       {/* Conteudo principal, dependendo de qual rota está */}
       <div className='d-flex flex-column min-vh-100 flex-grow-1 p-2 justify-content-center' style={{marginLeft:"350px"}}>
         <Container fluid>
-          <h1>Conteúdo Principal</h1>
+          <Outlet/>
         </Container>
       </div>      
     </div>
